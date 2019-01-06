@@ -1,4 +1,5 @@
 #!/bin/bash
+umask 0000
 if [ ! -f /OneDriveConf/refresh_token ]
 then
   echo "OneDrive Authentication" >> /OneDriveConf/log.txt 2>&1
@@ -14,6 +15,5 @@ fi
 if [ -f /OneDriveConf/refresh_token ]
 then
   echo "Running OneDrive" >> /OneDriveConf/log.txt 2>&1
-  umask 0000
   /usr/local/bin/onedrive $ONEDRIVE_COMMANDS --confdir /OneDriveConf --syncdir /OneDriveData >> /OneDriveConf/log.txt 2>&1
 fi
