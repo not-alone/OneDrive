@@ -29,7 +29,6 @@ RUN cd /home/nobody && \
 	. `bash /home/nobody/install.sh -a` && \
 	make && make install
 	
-VOLUME ["/OneDriveConf", "/OneDriveData"]
 RUN chown -R nobody:users /OneDriveConf
 RUN chown -R nobody:users /OneDriveData
 
