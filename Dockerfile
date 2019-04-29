@@ -1,6 +1,6 @@
 
 FROM ubuntu
-MAINTAINER Steve Hardy <steve.hardy@live.co.uk>
+MAINTAINER Mikhail Kovalsky <not-alone@yandex.ru>
 
 ENTRYPOINT /home/nobody/start.sh
 
