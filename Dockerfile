@@ -15,7 +15,6 @@ RUN cd /home/nobody && curl -fsS -o install.sh https://dlang.org/install.sh && b
 
 
 VOLUME ["/OneDriveConf", "/OneDriveData"]
-RUN chown -R nobody:users /OneDriveConf
-RUN chown -R nobody:users /OneDriveData
+RUN chown -R nobody:users /OneDriveConf && chown -R nobody:users /OneDriveData
 
 USER nobody
