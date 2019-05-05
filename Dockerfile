@@ -10,7 +10,7 @@ RUN sed -i 's/\r$//' /home/nobody/start.sh  && chmod +x /home/nobody/start.sh &&
 
 RUN mkdir /OneDriveConf && mkdir /OneDriveData &&  mv /home/nobody/config /OneDriveConf && chown -R nobody:users /OneDriveConf && chown -R nobody:users /OneDriveData && chown -R nobody:users /home/nobody && rm -rf /home/nobody/*
 
-RUN cd /home/nobody && curl -fsS -o install.sh https://dlang.org/install.sh && bash install.sh dmd && git clone https://github.com/abraunegg/onedrive && cd /home/nobody/onedrive && . `bash /home/nobody/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` && ./configure && make && make install && cd /home/nodoby/ && ls | grep -v start.sh | xargs rm -rf
+RUN cd /home/nobody && curl -fsS -o install.sh https://dlang.org/install.sh && bash install.sh dmd && git clone https://github.com/abraunegg/onedrive && cd /home/nobody/onedrive && . `bash /home/nobody/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` && ./configure && make && make install && cd .. && ls | grep -v start.sh | xargs rm -rf
 
 USER nobody
 
