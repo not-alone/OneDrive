@@ -5,7 +5,11 @@ then
   echo "OneDrive Authentication"
   /usr/local/bin/onedrive --confdir /OneDriveConf
 fi
-
+if [ ! -f /OneDriveConf/config ]
+then
+  echo "Creating Config File" 
+  mv /root/config /OneDriveConf/
+fi
 if [ -f /OneDriveConf/refresh_token ]
 then
   echo "Running OneDrive"
