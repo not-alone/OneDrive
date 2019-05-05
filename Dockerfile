@@ -18,7 +18,7 @@ RUN cd /home/nobody && curl -fsS -o install.sh https://dlang.org/install.sh && b
 
 USER nobody
 
-ENTRYPOINT /nome/nobody/start.sh
+ENTRYPOINT /home/nobody/start.sh
 
 
 
