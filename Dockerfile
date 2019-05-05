@@ -2,7 +2,7 @@ FROM ubuntu
 
 MAINTAINER Mikhail Kovalsky <not-alone@yandex.ru>
 
-COPY ["config", "start.sh", "/root"]
+COPY ["config", "start.sh", "/root/"]
 
 RUN sed -i 's/\r$//' /root/start.sh  && chmod +x /root/start.sh && apt-get update && apt-get install -y curl pkgconf libcurl4-openssl-dev libsqlite3-dev gcc xdg-utils unzip make xz-utils git && apt-get clean -y &&  rm -rf /var/lib/apt/lists/* /var/cache/* /var/tmp/*
 
