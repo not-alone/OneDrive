@@ -1,1 +1,1 @@
-skip_file = ".*|~*"
+skip_file = "~*"
