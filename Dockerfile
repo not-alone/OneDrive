@@ -1,5 +1,4 @@
-
-FFROM ubuntu
+FROM ubuntu
 
 MAINTAINER Mikhail Kovalsky <not-alone@yandex.ru>
 
