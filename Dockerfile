@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y curl pkgconf libcurl4-openssl-dev libsq
 
 VOLUME ["/OneDriveConf", "/OneDriveData"]
 
-RUN cp /home/nobody/config /OneDriveConf/config && chown -R nobody:users /OneDriveConf && chown -R nobody:users /OneDriveData && chown -R nobody:users /home/nobody
+RUN cp /home/nobody/config /OneDriveConf && chown -R nobody:users /OneDriveConf && chown -R nobody:users /OneDriveData && chown -R nobody:users /home/nobody
 
 RUN cd /home/nobody && curl -fsS -o install.sh https://dlang.org/install.sh && bash install.sh dmd && git clone https://github.com/abraunegg/onedrive && cd /home/nobody/onedrive && . `bash /home/nobody/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` && ./configure && make && make install
 
