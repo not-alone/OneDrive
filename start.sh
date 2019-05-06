@@ -1,5 +1,14 @@
 #!/bin/bash
-umask 0000
+[ -z $GID ] && { GID=1000; }
+[ -z $UID ] && { UID=1000; }
+
+# group for app
+[ $( getent group app | wc -l ) -gt 0 ] && { groupdel app; }
+groupadd -g $GID app
+# user
+[ $( getent passwd app | wc -l ) -gt 0 ] && { userdel app; }
+useradd -g app -u $UID -s /bin/bash -m app
+
 if [ ! -f /OneDriveConf/refresh_token ]
 then
   echo "OneDrive Authentication"
@@ -10,8 +19,13 @@ then
   echo "Creating Config File" 
   mv /root/config /OneDriveConf/
 fi
+chown -R app:app /OneDriveData
+chown -R app:app /OneDriveConf
 if [ -f /OneDriveConf/refresh_token ]
 then
   echo "Running OneDrive"
-  /usr/local/bin/onedrive $ONEDRIVE_COMMANDS --monitor --verbose --confdir /OneDriveConf --syncdir /OneDriveData
+  su app -c "/usr/local/bin/onedrive $ONEDRIVE_COMMANDS --monitor --verbose --confdir /OneDriveConf --syncdir /OneDriveData"
 fi
+#!/bin/bash
+
+
