@@ -18,7 +18,7 @@ To allow you to copy the URI back into the docker container you need to launch i
 Once authenticated you can stop the sync process by ctrl+c, remove and restart the container in non-interactive mode.
 
     docker rm your_contaner_name && \
-    docker run -itd --name <your_contaner_name> \
+    docker run -itd --name your_contaner_name \
     -e PUID=$(id -u) -e PGID=(id -g) \
     -v your_config_directory:/OneDriveConf \
     -v your_data_directory:/OneDriveData \
