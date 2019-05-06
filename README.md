@@ -15,9 +15,12 @@ To allow you to copy the URI back into the docker container you need to launch i
     -v your_data_directory:/OneDriveData \
     notalone/onedrive-abraunegg:latest
 
-Once authenticated you can stop the sync process by ctrl+c, remove and restart the container in non-interactive mode.
+Once authenticated you can stop the sync process by ctrl+c, remove 
 
-    docker rm your_contaner_name && \
+    docker rm your_contaner_name
+
+and restart the container in non-interactive mode.
+
     docker run -itd --name your_contaner_name \
     -e PUID=$(id -u) -e PGID=(id -g) \
     -v your_config_directory:/OneDriveConf \
