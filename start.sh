@@ -1,13 +1,13 @@
 #!/bin/bash
-[ -z $GID ] && { GID=1000; }
-[ -z $UID ] && { UID=1000; }
+[ -z $PGID ] && { PGID=1000; }
+[ -z $PUID ] && { PUID=1000; }
 
 # group for app
 [ $( getent group app | wc -l ) -gt 0 ] && { groupdel app; }
-groupadd -g $GID app
+groupadd -g $PGID app
 # user
 [ $( getent passwd app | wc -l ) -gt 0 ] && { userdel app; }
-useradd -g app -u $UID -s /bin/bash -m app
+useradd -g app -u $PUID -s /bin/bash -m app
 
 if [ ! -f /OneDriveConf/refresh_token ]
 then
