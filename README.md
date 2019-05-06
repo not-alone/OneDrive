@@ -28,7 +28,7 @@ Once authenticated you can stop the sync process by ctrl+c, remove and restart t
 
 The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 
-    -v /config - This is where the OneDrive Client will store it's config. 
-    -v /documents - This is the folder that will be synced with OneDrive
+    -v /OneDriveConf - This is where the OneDrive Client will store it's config. 
+    -v /OneDriveData - This is the folder that will be synced with OneDrive
     -e PGID - for GroupID - This should match the GID of the user who owns the local files
     -e PUID - for UserID - This should match the UID of the user who owns the local files
