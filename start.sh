@@ -19,13 +19,13 @@ then
   echo "Creating Config File" 
   mv /root/config /OneDriveConf/
 fi
-chown -R app:app /OneDriveData
-chown -R app:app /OneDriveConf
 if [ -f /OneDriveConf/refresh_token ]
 then
+  chown -R app:app /OneDriveData
+  chown -R app:app /OneDriveConf
   echo "Running OneDrive"
   su app -c "/usr/local/bin/onedrive $ONEDRIVE_COMMANDS --monitor --verbose --confdir /OneDriveConf --syncdir /OneDriveData"
 fi
-#!/bin/bash
+
 
 
