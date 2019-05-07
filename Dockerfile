@@ -8,9 +8,9 @@ FROM ubuntu:latest as main
 
 COPY ["config", "start.sh", "/root/"]
 
-COPY --from=build /root/onedrive .
+COPY --from=build /root/onedrive /root/onedrive
 
-RUN apt-get update && apt-get install -y make && mkdir /OneDriveConf && mkdir /OneDriveData && chmod +x /root/start.sh && sed -i 's/\r$//' /root/start.sh && cd /root/onedrive && make install && cd /root && rm -rf onedrive && apt-get purge -y make && apt-get clean -y && rm -rf /var/lib/apt/lists/* /var/cache/* /var/tmp/* 
+RUN apt-get update && apt-get install -y libcurl4-openssl-dev libsqlite3-dev make && mkdir /OneDriveConf && mkdir /OneDriveData && chmod +x /root/start.sh && sed -i 's/\r$//' /root/start.sh && cd /root/onedrive && make install && cd /root && rm -rf onedrive && apt-get purge -y make && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /var/cache/* /var/tmp/* 
 
 ENTRYPOINT /root/start.sh
 
