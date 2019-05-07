@@ -10,6 +10,6 @@ RUN mkdir /OneDriveConf && mkdir /OneDriveData &&  cd /root && ls | grep -v star
 
 RUN cd /root && curl -fsS -o install.sh https://dlang.org/install.sh && bash install.sh dmd && git clone https://github.com/abraunegg/onedrive && cd /root/onedrive && . `bash /root/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` && ./configure && make && make install && cd /root && ls | grep -v start.sh | grep -v config | xargs rm -rf
 
-
+ENTRYPOINT /root/start.sh
 
 
