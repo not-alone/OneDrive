@@ -21,7 +21,7 @@ Once authenticated you can stop the sync process by ctrl+c, remove the container
 
     docker rm your_contaner_name
 
-and restart the container in non-interactive mode
+and restart the container in non-interactive mode:
 
     docker run -itd --name your_contaner_name \
     -e PUID=$(id -u) -e PGID=(id -g) \
