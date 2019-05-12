@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 [ -z $PGID ] && { PGID=1000; }
 [ -z $PUID ] && { PUID=1000; }
 
@@ -24,7 +24,7 @@ then
   chown -R app:app /OneDriveData
   chown -R app:app /OneDriveConf
   echo "Running OneDrive"
-  su app -c "/usr/local/bin/onedrive $ONEDRIVE_COMMANDS --monitor --verbose --confdir /OneDriveConf --syncdir /OneDriveData"
+  su app -c "/usr/local/bin/onedrive --monitor --verbose --confdir /OneDriveConf --syncdir /OneDriveData"
 fi
 
 
