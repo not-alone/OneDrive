@@ -2,7 +2,7 @@ FROM ubuntu:latest as build
 
 MAINTAINER Mikhail Kovalsky <not-alone@yandex.ru>
 
-RUN  apt-get update && apt-get install -y curl pkgconf libcurl4-openssl-dev libsqlite3-dev gcc xdg-utils unzip make xz-utils git && cd /root && curl -fsS -o install.sh https://dlang.org/install.sh && bash install.sh dmd && git clone https://github.com/abraunegg/onedrive && cd /root/onedrive && . `bash /root/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` && ./configure && make
+RUN  apt-get update && apt-get install -y curl gnupg pkgconf libcurl4-openssl-dev libsqlite3-dev gcc xdg-utils unzip make xz-utils git && cd /root && curl -fsS -o install.sh https://dlang.org/install.sh && bash install.sh dmd && git clone https://github.com/abraunegg/onedrive && cd /root/onedrive && . `bash /root/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` && ./configure && make
 
 FROM ubuntu:latest as main
 
