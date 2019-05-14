@@ -11,7 +11,7 @@ libcurl4-openssl-dev libsqlite3-dev gcc xdg-utils unzip make xz-utils git \
 && cd /root/onedrive && . `bash /root/install.sh -a` && `/bin/bash -c 'source ~/dlang/dmd*/activate'` \
 && ./configure && make && cd /root && ls | grep -v start.sh | grep -v config | grep -v onedrive |xargs rm -rf
 
-FROM ubuntu:latest as 
+FROM ubuntu:latest as main
 
 COPY --from=build /root /root
 
